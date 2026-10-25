@@ -18,7 +18,7 @@ Các hệ thống sẽ được đánh giá trên cùng tập câu hỏi, cùng 
 Các lệnh sau chạy từ thư mục gốc của repository, trong CMD trên Windows:
 
 ```cmd
-py -3.13 -m venv .venv
+python -m venv .venv
 .venv\Scripts\activate
 python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
