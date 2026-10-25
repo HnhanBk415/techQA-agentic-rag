@@ -1,0 +1,167 @@
+﻿id,source_split,is_impossible,context_file,question
+DEV_Q082,DEV,False,swg22011695.txt,"Help with Security Bulletin: IIB is affected by Web UI security vulnerability (CVE-2017-1694)
+
+I need to understand details regarding Security Bulletin: IBM Integration Bus is affected by Web UI security vulnerability (CVE-2017-1694). Where can I find this information? "
+TRAIN_Q238,TRAIN,True,(không có context),"Help with Security Bulletin: IIB is affected by Web UI security vulnerability (CVE-2017-1694)
+
+I need to understand details regarding Security Bulletin: IBM Integration Bus is affected by Web UI security vulnerability (CVE-2017-1694). Where can I find this information? "
+DEV_Q156,DEV,False,swg21998655.txt,"Help with Security Bulletin: Malicious File Download vulnerability in IBM Business Process Manager (BPM) and WebSphere Lombardi Edition (WLE) - CVE-2016-9693
+
+Where can I find information for Security bulletin: Malicious File Download vulnerability in IBM Business Process Manager (BPM) and WebSphere Lombardi Edition (WLE) - CVE-2016-9693? "
+TRAIN_Q047,TRAIN,False,swg21998655.txt,"Help with Security Bulletin: Malicious File Download vulnerability in IBM Business Process Manager (BPM) and WebSphere Lombardi Edition (WLE) - CVE-2016-9693
+
+Where can I find information for Security bulletin: Malicious File Download vulnerability in IBM Business Process Manager (BPM) and WebSphere Lombardi Edition (WLE) - CVE-2016-9693? "
+DEV_Q129,DEV,False,swg21962588.txt,"Help with Security Bulletin: Multiple vulnerabilities in IBM Java SDK affect IBM OS Images for Red Hat Linux Systems and AIX (CVE-2015-0410 and CVE-2014-6593)
+
+I need to understand details regarding ""Security Bulletin: Multiple vulnerabilities in IBM Java SDK affect IBM OS Images for Red Hat Linux Systems and AIX (CVE-2015-0410 and CVE-2014-6593)"" Where can I find this information? "
+TRAIN_Q206,TRAIN,False,swg21962588.txt,"Help with Security Bulletin: Multiple vulnerabilities in IBM Java SDK affect IBM OS Images for Red Hat Linux Systems and AIX (CVE-2015-0410 and CVE-2014-6593)
+
+I need to understand details regarding ""Security Bulletin: Multiple vulnerabilities in IBM Java SDK affect IBM OS Images for Red Hat Linux Systems and AIX (CVE-2015-0410 and CVE-2014-6593)"" Where can I find this information? "
+DEV_Q180,DEV,False,swg21964873.txt,"Help with Security Bulletin: Security Vulnerability in IBM PureApplication System. (CVE-2015-1920)
+
+I need to understand details regarding ""Security Bulletin: Security Vulnerability in IBM PureApplication System (CVE-2015-1920)"". Where can I find this information? "
+TRAIN_Q559,TRAIN,False,swg21964873.txt,"Help with Security Bulletin: Security Vulnerability in IBM PureApplication System. (CVE-2015-1920)
+
+I need to understand details regarding ""Security Bulletin: Security Vulnerability in IBM PureApplication System (CVE-2015-1920)"". Where can I find this information? "
+DEV_Q179,DEV,False,swg22014367.txt,"Help with Security Bulletin: Vulnerabilities in OpenSSL affect WebSphere MQ 5.3 and MQ 8 for HPE NonStop Server (CVE-2017-3735)
+
+I need to understand details regarding Security Bulletin: Vulnerabilities in OpenSSL affect WebSphere MQ 5.3 and MQ 8 for HPE NonStop Server (CVE-2017-3735). Where can I find this information?"
+TRAIN_Q076,TRAIN,False,swg22014367.txt,"Help with Security Bulletin: Vulnerabilities in OpenSSL affect WebSphere MQ 5.3 and MQ 8 for HPE NonStop Server (CVE-2017-3735)
+
+I need to understand details regarding Security Bulletin: Vulnerabilities in OpenSSL affect WebSphere MQ 5.3 and MQ 8 for HPE NonStop Server (CVE-2017-3735). Where can I find this information?"
+DEV_Q094,DEV,False,swg21638268.txt,"How do I upgrade my virtual DataPower Appliance from 5.0 firmware to 6.0+ firmware?
+
+When attempting to upgrade my Virtual DataPower Appliance from 5.0.0.0 firmware version to 6.0+ firmware versions, I receive a failure message. "
+TRAIN_Q285,TRAIN,False,swg21638268.txt,"How do I upgrade my virtual DataPower Appliance from 5.0 firmware to 6.0+ firmware?
+
+When attempting to upgrade my Virtual DataPower Appliance from 5.0.0.0 firmware version to 6.0+ firmware versions, I receive a failure message. "
+DEV_Q160,DEV,False,swg21163875.txt,"How to increase the HTTP Session time-out value for Workplace application on WebSphere Application Server?
+
+We would like to increase the HTTP Session time-out value for our Workplace application. Where are all the locations that this value is set and what are their precedence? "
+TRAIN_Q107,TRAIN,False,swg21163875.txt,"How to increase the HTTP Session time-out value for Workplace application on WebSphere Application Server?
+
+We would like to increase the HTTP Session time-out value for our Workplace application. Where are all the locations that this value is set and what are their precedence? "
+DEV_Q189,DEV,True,(không có context),"How to wrap table column text in list tab for a specific table?
+
+I would like to wrap the text of table column into new a line. "
+TRAIN_Q210,TRAIN,False,swg22007765.txt,"How to wrap table column text in list tab for a specific table?
+
+I would like to wrap the text of table column into new a line. "
+DEV_Q014,DEV,False,swg21138332.txt,"Installing fixpacks with Installation Manager - when did it change from using updateInstaller,  starting in which version of WebSphere
+
+I was using updateInstaller to install fixpacks, and there was a separate fixpack for WebSphere and separate for the JDK, independent of each other. Now I understand that with Installation Manager there is a single package containing both the WebSphere App server fixpack as well as the JDK. When did this occur, starting with which version of WebSphere ? "
+TRAIN_Q299,TRAIN,False,swg21138332.txt,"Installing fixpacks with Installation Manager - when did it change from using updateInstaller,  starting in which version of WebSphere
+
+I was using updateInstaller to install fixpacks, and there was a separate fixpack for WebSphere and separate for the JDK, independent of each other. Now I understand that with Installation Manager there is a single package containing both the WebSphere App server fixpack as well as the JDK. When did this occur, starting with which version of WebSphere ? "
+DEV_Q290,DEV,False,swg21967756.txt,"Is using a monitored JBoss server with ITCAM supported in a Windows Service?
+
+Is using a monitored JBoss server with ITCAM supported in a Windows Service? "
+TRAIN_Q189,TRAIN,False,swg21967756.txt,"Is using a monitored JBoss server with ITCAM supported in a Windows Service?
+
+Is using a monitored JBoss server with ITCAM supported in a Windows Service? "
+DEV_Q276,DEV,True,(không có context),"MessageSet Project cannot be referenced in multiple Applications
+
+
+
+The same MessageSet Project cannot be referenced in multiple Applications or Libraries in WMB V8.
+
+Is there any specific reason for having this restriction ?
+
+Thanks."
+TRAIN_Q248,TRAIN,False,swg27023600.txt,"MessageSet Project cannot be referenced in multiple Applications
+
+
+
+The same MessageSet Project cannot be referenced in multiple Applications or Libraries in WMB V8.
+
+Is there any specific reason for having this restriction ?
+
+Thanks."
+DEV_Q038,DEV,False,swg21451229.txt,"ODM 8.7 TeamServer users active authoring rules and they get kicked out - transaction timeout or session timeout?
+
+Some of my users are being kicked out of TeamServer while actively authoring rules. What value would be controlling this behavior? Session timeout is at it's default 30 minutes. Does transaction timeout come in to play here or is there a different setting that might be causing this. Thanks. "
+TRAIN_Q067,TRAIN,False,swg21451229.txt,"ODM 8.7 TeamServer users active authoring rules and they get kicked out - transaction timeout or session timeout?
+
+Some of my users are being kicked out of TeamServer while actively authoring rules. What value would be controlling this behavior? Session timeout is at it's default 30 minutes. Does transaction timeout come in to play here or is there a different setting that might be causing this. Thanks. "
+DEV_Q240,DEV,False,swg21986219.txt,"Port number error starting 9.0 Launcher
+
+
+
+I'm attempting to start up v9.0 for the first time with one .msl file on a Windows server and get the following error.  I also have v8.4 on this server and it starts fine.  I do not have v8.4 running when I attempt to start v9.0.
+
+Cannot recognize if the system RecordChangeSystem.msl; has started. Reason: Server is unable to get the status of the system on port number 6,002.
+
+I have the port range set to 7000/8000.  I've never seen this error before.
+
+Any help?  Thanks."
+TRAIN_Q286,TRAIN,False,swg21986219.txt,"Port number error starting 9.0 Launcher
+
+
+
+I'm attempting to start up v9.0 for the first time with one .msl file on a Windows server and get the following error.  I also have v8.4 on this server and it starts fine.  I do not have v8.4 running when I attempt to start v9.0.
+
+Cannot recognize if the system RecordChangeSystem.msl; has started. Reason: Server is unable to get the status of the system on port number 6,002.
+
+I have the port range set to 7000/8000.  I've never seen this error before.
+
+Any help?  Thanks."
+DEV_Q029,DEV,False,swg21496354.txt,"Recurrent RES StaleConnectionException
+
+How to prevent rule execution failing because of recurrent StaleConnectionException on ODM 8.8 Rule Execution Server? "
+TRAIN_Q489,TRAIN,False,swg21496354.txt,"Recurrent RES StaleConnectionException
+
+How to prevent rule execution failing because of recurrent StaleConnectionException on ODM 8.8 Rule Execution Server? "
+DEV_Q195,DEV,False,swg21959224.txt,"TLS protocol with ITCAM for Datapower
+
+We have a DataPower appliance with TLS security protocol enabled. Can we configure ITCAM for DataPower appliance v7.1 to specifically use the TLS protocol v1.2 (not v1.0)?
+"
+TRAIN_Q156,TRAIN,True,(không có context),"TLS protocol with ITCAM for Datapower
+
+We have a DataPower appliance with TLS security protocol enabled. Can we configure ITCAM for DataPower appliance v7.1 to specifically use the TLS protocol v1.2 (not v1.0)?
+"
+DEV_Q155,DEV,False,swg21445430.txt,"What exactly is ""wpcollector"" in WebSphere Portal Server?
+
+I've been told to get wpcollector output? What exactly is this?"
+TRAIN_Q056,TRAIN,False,swg21445430.txt,"What exactly is ""wpcollector"" in WebSphere Portal Server?
+
+I've been told to get wpcollector output? What exactly is this?"
+DEV_Q303,DEV,False,swg21690658.txt,"Why are the users unable to login to Web GUI 8.1 after I modify timeout to 2147483647 in security.xml file ?
+
+
+
+I followed the Web GUI 8.1 reference guide here to switching off the session timeout
+
+http://www-01.ibm.com/support/knowledgecenter/SSSHTQ_8.1.0/com.ibm.netcool_OMNIbus.doc_8.1.0/webtop/wip/task/web_adm_settimeout.html
+
+After I edited /config/cells/JazzSMNode01Cell/security.xml file, modified timeout setting to 2147483647, users are not able to login anymore."
+TRAIN_Q507,TRAIN,False,swg21690658.txt,"Why are the users unable to login to Web GUI 8.1 after I modify timeout to 2147483647 in security.xml file ?
+
+
+
+I followed the Web GUI 8.1 reference guide here to switching off the session timeout
+
+http://www-01.ibm.com/support/knowledgecenter/SSSHTQ_8.1.0/com.ibm.netcool_OMNIbus.doc_8.1.0/webtop/wip/task/web_adm_settimeout.html
+
+After I edited /config/cells/JazzSMNode01Cell/security.xml file, modified timeout setting to 2147483647, users are not able to login anymore."
+DEV_Q298,DEV,False,swg27035841.txt,"can Datacap support to Arabic language?
+
+can Datacap support to Arabic language?"
+TRAIN_Q138,TRAIN,True,(không có context),"can Datacap support to Arabic language?
+
+can Datacap support to Arabic language?"
+DEV_Q228,DEV,True,(không có context),"javax.xml.bind.UnmarshalException org.xml.sax.SAXParseException: The reference to entity must end with the ; delimiter.
+
+
+
+After an upgrade from JRules to ODM we are receiving errors because of an ampersand in our data. This used to work before.
+
+Caused by: javax.xml.bind.UnmarshalException
+- with linked exception: [org.xml.sax.SAXParseException: The reference to entity ""NIGHT"" must end with the ; delimiter."
+TRAIN_Q333,TRAIN,False,swg21498780.txt,"javax.xml.bind.UnmarshalException org.xml.sax.SAXParseException: The reference to entity must end with the ; delimiter.
+
+
+
+After an upgrade from JRules to ODM we are receiving errors because of an ampersand in our data. This used to work before.
+
+Caused by: javax.xml.bind.UnmarshalException
+- with linked exception: [org.xml.sax.SAXParseException: The reference to entity ""NIGHT"" must end with the ; delimiter."
