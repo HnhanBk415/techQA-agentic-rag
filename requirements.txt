@@ -1,0 +1,6 @@
+datasets
+pandas
+sentence-transformers
+langgraph
+python-dotenv
+google-genai
