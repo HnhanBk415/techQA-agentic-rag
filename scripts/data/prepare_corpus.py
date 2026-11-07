@@ -6,65 +6,77 @@
 # Script này không sửa dataset gốc và không tạo embedding.
 
 import json
-from pathlib import Path
+from pathlib import Path, PurePosixPath
+from tempfile import NamedTemporaryFile
+from zipfile import ZipFile
 
-from dataset_utils import get_all_contexts, load_techqa_dataframe
+
+ARCHIVE_FILE = Path("data/raw/corpus.zip")
+DEV_FILE = Path("data/processed/dev_eval.jsonl")
+CORPUS_FILE = Path("data/processed/corpus.jsonl")
 
 
-# 1. Đọc dataset thành bảng.
-# Hàm dùng chung cũng thêm cột source_split để phân biệt TRAIN/DEV.
-dataframe = load_techqa_dataframe()
+def check_dev_coverage(doc_ids):
+    with DEV_FILE.open(encoding="utf-8") as file:
+        dev_rows = [json.loads(line) for line in file]
 
-# Chỉ dùng tài liệu từ TRAIN để làm kho truy xuất.
-# Các câu hỏi DEV sẽ dùng để đánh giá, nên không lấy context từ DEV vào corpus.
-dataframe = dataframe[dataframe["source_split"] == "TRAIN"].copy()
+    answerable = [row for row in dev_rows if not row["is_impossible"]]
+    missing = [
+        row for row in answerable
+        if row["gold_filename"] not in doc_ids
+    ]
 
-# 2. Gom các context trong từng câu hỏi thành một danh sách.
-# Mỗi context là một tài liệu có tên file (filename) và nội dung (text).
-contexts = get_all_contexts(dataframe)
+    print(f"DEV có tài liệu chuẩn trong kho: {len(answerable) - len(missing)}/{len(answerable)}")
 
-# 3. Chuẩn bị từ điển để chỉ lưu một bản cho mỗi tên file.
-# Ví dụ: documents["swg123.txt"] sẽ là tài liệu có tên đó.
-documents = {}
+    if missing:
+        examples = ", ".join(row["gold_filename"] for row in missing[:5])
+        raise ValueError(f"Thiếu tài liệu chuẩn cho {len(missing)} câu DEV. Ví dụ: {examples}")
 
-for context in contexts:
-    filename = context["filename"]
-    text = context["text"]
 
-    # Nếu đã gặp tên file này, kiểm tra nội dung có giống bản đã lưu không.
-    if filename in documents:
-        if documents[filename]["text"] != text:
-            # Dừng lại nếu cùng tên file nhưng nội dung khác,
-            # để mình kiểm tra thay vì âm thầm bỏ mất một phiên bản.
-            raise ValueError(
-                f"Cùng tên file nhưng nội dung khác nhau: {filename}"
-            )
+def main():
+    if not ARCHIVE_FILE.is_file():
+        raise SystemExit(f"Chưa tìm thấy {ARCHIVE_FILE}.")
+    if not DEV_FILE.is_file():
+        raise SystemExit("Chạy prepare_eval.py trước để tạo dev_eval.jsonl.")
 
-        # Nội dung giống nhau rồi, bỏ qua bản lặp và chuyển sang context kế.
-        continue
+    CORPUS_FILE.parent.mkdir(parents=True, exist_ok=True)
+    doc_ids = set()
+    temp_path = None
 
-    # Lần đầu gặp tên file: lưu ID nguồn và nội dung tài liệu.
-    documents[filename] = {
-        "doc_id": filename,
-        "text": text
-    }
+    try:
+        with ZipFile(ARCHIVE_FILE) as archive, NamedTemporaryFile(
+            mode="w", encoding="utf-8", dir=CORPUS_FILE.parent, delete=False
+        ) as output:
+            temp_path = Path(output.name)
 
-# 4. Chọn đường dẫn đầu ra.
-# Đường dẫn tính từ thư mục gốc repo khi chạy lệnh.
-output_file = Path("data/processed/corpus.jsonl")
+            for member in archive.infolist():
+                if member.is_dir() or not member.filename.lower().endswith(".txt"):
+                    continue
 
-# Tạo data/processed nếu chưa có; nếu đã có thì tiếp tục bình thường.
-output_file.parent.mkdir(parents=True, exist_ok=True)
+                # corpus/swg24042191.txt → swg24042191.txt
+                doc_id = PurePosixPath(member.filename).name
+                text = archive.read(member).decode("utf-8-sig")
 
-# 5. Ghi mỗi tài liệu thành một dòng JSON (JSON Lines).
-# Chế độ "w" tạo mới hoặc ghi đè file corpus khi chạy lại.
-with output_file.open("w", encoding="utf-8") as file:
-    for document in documents.values():
-        # ensure_ascii=False giữ nguyên chữ Unicode thay vì mã hóa thành \\u...
-        json_line = json.dumps(document, ensure_ascii=False)
-        file.write(json_line + "\n")
+                if doc_id in doc_ids or not text.strip():
+                    raise ValueError(f"Tài liệu trùng tên hoặc rỗng: {doc_id}")
 
-# 6. In tóm tắt để kiểm tra kết quả.
-print("Lượt context ban đầu:", len(contexts))
-print("Tài liệu sau khi gộp:", len(documents))
-print("Đã lưu tại:", output_file)
+                doc_ids.add(doc_id)
+                output.write(json.dumps(
+                    {"doc_id": doc_id, "text": text}, ensure_ascii=False
+                ) + "\n")
+
+        if not doc_ids:
+            raise ValueError("Không tìm thấy tài liệu TXT trong ZIP.")
+
+        check_dev_coverage(doc_ids)
+        temp_path.replace(CORPUS_FILE)
+    finally:
+        if temp_path is not None:
+            temp_path.unlink(missing_ok=True)
+
+    print("Số tài liệu trong kho:", len(doc_ids))
+    print("Đã lưu tại:", CORPUS_FILE)
+
+
+if __name__ == "__main__":
+    main()
