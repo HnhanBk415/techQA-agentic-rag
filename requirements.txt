@@ -4,3 +4,5 @@ sentence-transformers
 langgraph
 python-dotenv
 google-genai
+psycopg[binary]
+pgvector

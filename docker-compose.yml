@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: pgvector/pgvector:pg17
+    container_name: techqa-postgres
+    environment:
+      POSTGRES_USER: techqa
+      POSTGRES_PASSWORD: ${PGPASSWORD}
+      POSTGRES_DB: techqa_rag
+    ports:
+      - "127.0.0.1:5433:5432"
+    volumes:
+      - techqa_pgdata:/var/lib/postgresql/data
+
+volumes:
+  techqa_pgdata:
