@@ -35,7 +35,8 @@ def main():
     print("Số chunks cần tạo embedding:", len(texts))
 
     # Model tự chọn GPU nếu máy có hỗ trợ; nếu không thì chạy bằng CPU.
-    model = SentenceTransformer(MODEL_NAME)
+    model = SentenceTransformer(MODEL_NAME, device="cuda")
+    print("Thiết bị tạo embedding:", model.device)
 
     # Chuyển mỗi đoạn văn thành một vector số.
     # Chuẩn hóa vector để sau này so sánh bằng tích vô hướng.
