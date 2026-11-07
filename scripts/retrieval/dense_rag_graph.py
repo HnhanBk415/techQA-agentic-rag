@@ -1,9 +1,10 @@
 from typing import TypedDict
 
 from langgraph.graph import END, START, StateGraph
+from sentence_transformers import SentenceTransformer
 
 from scripts.generation.gemini_generator import generate_answer
-from scripts.retrieval.search_dense import load_search_resources, retrieve
+from scripts.retrieval.dense_search_pgvector import MODEL_NAME, retrieve_pgvector
 
 
 class DenseRAGState(TypedDict):
@@ -18,20 +19,16 @@ class DenseRAGState(TypedDict):
 
 
 def build_graph():
-    # Nạp model, vectors và metadata một lần khi khởi động graph.
-    # Không nạp lại các tài nguyên này ở mỗi node.
-    model, embeddings, chunks = load_search_resources()
+    # Tải MiniLM một lần khi khởi động graph.
+    model = SentenceTransformer(MODEL_NAME)
 
-    # Tìm Top-K chunks rồi ghi chúng vào state.
     def retrieve_node(state: DenseRAGState) -> dict:
-        retrieved_chunks = retrieve(
+        # MiniLM tạo vector câu hỏi, pgvector tìm 5 chunk gần nhất.
+        retrieved_chunks = retrieve_pgvector(
             question=state["question"],
             model=model,
-            embeddings=embeddings,
-            chunks=chunks,
             top_k=5,
         )
-
         return {"contexts": retrieved_chunks}
 
     # Đưa câu hỏi và chunks trong state cho Gemini trả lời
